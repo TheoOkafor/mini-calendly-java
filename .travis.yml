@@ -9,5 +9,5 @@ before_script:
 script:
   - mvn test
 after_script:
-  - ./cc-test-reporter after-build --exit-code target/my-reports
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
