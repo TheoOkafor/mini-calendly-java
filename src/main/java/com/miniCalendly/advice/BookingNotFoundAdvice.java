@@ -1,6 +1,6 @@
 package com.miniCalendly.advice;
 
-import com.miniCalendly.exceptions.OpeningNotFoundException;
+import com.miniCalendly.exceptions.BookingNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-public class OpeningNotFoundAdvice {
+public class BookingNotFoundAdvice {
     @ResponseBody
-    @ExceptionHandler(OpeningNotFoundException.class)
+    @ExceptionHandler(BookingNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String openingNotFoundAdvice(OpeningNotFoundException ex) {
+    String bookingNotFoundAdvice(BookingNotFoundException ex) {
         return ex.getMessage();
     }
 }
