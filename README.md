@@ -23,7 +23,18 @@ Clone this [repo](https://github.com/TheoOkafor/mini-calendly-java.git)
 git clone https://github.com/TheoOkafor/mini-calendly-java.git
 ```
 #### Requirements
-You need Java 8+ and above to run this app. Start by installing it (if you do not have it installed already).
+You need JDK 1.8+ and above to run this app. Start by installing it (if you do not have it installed already).
+Maven 3.2+
+I used IntelliJ IDE (You should consider using this too. it's awesome)
+
+#### Environment
+I used the following:
+
+JPA - for connecting to my H2 database
+
+H2 - An In-memory SQL database
+
+Lombok - a cool tool that implements some needful boilerplate codes (like getters and setters) in the background
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

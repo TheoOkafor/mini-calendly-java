@@ -3,11 +3,14 @@ env:
     - CC_TEST_REPORTER_ID=$CODECLIMATE_REPO_TOKEN
 language: java
 before_script:
+  # Set up code climate test reporter
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 script:
-  - mvn test
+  - mvn test jacoco:report
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-
+  # Upload code coverage to code climate - with workaround for jacoco
+  - cp target/site/jacoco/jacoco.xml src/main/java/jacoco.xml
+  - cd src/main/java/
+  - ../../../cc-test-reporter after-build -t jacoco --exit-code $TRAVIS_TEST_RESULT
