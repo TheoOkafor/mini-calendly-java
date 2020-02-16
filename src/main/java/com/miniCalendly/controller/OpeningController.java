@@ -1,6 +1,7 @@
 package com.miniCalendly.controller;
 
 import com.miniCalendly.exceptions.OpeningNotFoundException;
+import com.miniCalendly.exceptions.UserNotFoundException;
 import com.miniCalendly.model.Opening;
 import com.miniCalendly.repository.OpeningRepository;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,11 @@ public class OpeningController {
     @GetMapping("/openings")
     List<Opening> all() {
         return repository.findAll();
+    }
+
+    @GetMapping("/mentor/{owner}/openings")
+    List<Opening> allByOwner(@PathVariable Long owner) {
+        return (List<Opening>) repository.findAllByOwner(owner);
     }
 
     @PostMapping("/openings")
